@@ -46,6 +46,7 @@ a.out
 *.dSYM/
 *.sw*
 *.pyc
+win32-dev/
 
 doc/
 html/
