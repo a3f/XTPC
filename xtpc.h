@@ -20,12 +20,14 @@ struct xtpc {
                 );\
         })
 #define NO_XTPC(fun) (fun)
+#define XTPC_RETURN(ret) __builtin_return((ret))
 #define XTPC(fun) \
     ({ \
      intptr_t _fn_ () { \
         struct xtpc xtpc = { (void(*)())(fun), __builtin_apply_args(), 127, 0 };\
         XTPC_NOTIFY(&xtpc);\
-        __builtin_return(xtpc.ret);\
+        (void)XTPC_RETURN(xtpc.ret);\
+        return 0;\
      } \
      _fn_; \
      })

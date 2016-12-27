@@ -87,6 +87,10 @@ void eventloop(void) {
 }
 ```
 
+## BUGS
+
+* `example-winapi-messageloop.c` crashes if the `XTPC()` returns a value. `#define XTPC` to blank can be used to skip `return`ing (will default to `0`).
+
 [hooks]: https://github.com/a3f/ia32hook
 [nested functions]: https://gcc.gnu.org/onlinedocs/gcc/Nested-Functions.html
 [`__builtin_apply`]: https://gcc.gnu.org/onlinedocs/gcc/Constructing-Calls.html
