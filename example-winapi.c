@@ -1,7 +1,6 @@
 #include "xtpc.h"
 
 #include <stdlib.h>
-#include <unistd.h>
 #include <stdio.h>
 
 #define WIN32_LEAN_AND_MEAN
@@ -67,7 +66,7 @@ int main(void) {
     LeaveCriticalSection(&syn->lock);
 
     // run puts in the context of the XTPC thread
-    int len = XTPC(puts)("Hello World");
+    int len = XTPC(printf)("Hello World");
     printf("::Remote printf returned %d\n\n", len);
 
     const char *ret;

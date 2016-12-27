@@ -54,7 +54,7 @@ int main(void) {
     pthread_mutex_unlock(&syn->lock);
 
     // run puts in the context of the XTPC thread
-    int len = XTPC(puts)("Hello World");
+    int len = XTPC(printf)("Hello World\n");
     printf("::Remote printf returned %d\n\n", len);
 
     const char *ret;
@@ -93,6 +93,6 @@ void *eventloop(void* syn_) {
 
     pthread_mutex_unlock(&syn->lock);
 
-    return NULL;
+    return 0;
 
 }
