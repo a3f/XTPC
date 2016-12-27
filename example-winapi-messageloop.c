@@ -107,7 +107,7 @@ DWORD WINAPI other_thread(void *hwnd) {
 
     char line[128];
     while(fgets(line, sizeof line, stdin)) {
-/*#define XTPC_RETURN (void)*/
+#define XTPC_RETURN (void)
         XTPC(puts)("Hello World");
     }
 
