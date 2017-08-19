@@ -2,6 +2,9 @@
 
 Header-only library for recording a function call and running it in the context of an another thread, sharing the address space. Employs GNU [nested functions] and [`__builtin_apply`] under the hood and thus **only works with `gcc`**.
 
+[![Build Status](https://travis-ci.org/a3f/xtpc.svg?branch=master)](https://travis-ci.org/a3f/xtpc) 
+[![Build status](https://ci.appveyor.com/api/projects/status/xixo5696nbjaxa3v/branch/master?svg=true)](https://ci.appveyor.com/project/a3f/xtpc/branch/master)
+
 #### ▪ What's it for?
 
 Finding functions while reverse engineering a game is easy enough, the problem is calling those functions. They are often not thread-safe and thus calls need to be synchronized. Normally, this would mean synchronizing with the game's event loop or similar and writing special wrapper functions for **every** function you would like to call.
