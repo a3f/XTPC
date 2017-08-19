@@ -14,7 +14,6 @@ __typeof__(*(WNDPROC)0) WndProc;
 
 #define XTPC_NOTIFY notify
 int notify(struct xtpc *xtpc) {
-    printf("notifying!\n");
     COPYDATASTRUCT data;
     data.dwData = (ULONG_PTR)&notify;
     data.lpData = xtpc;

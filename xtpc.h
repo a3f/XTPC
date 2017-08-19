@@ -12,6 +12,14 @@ struct xtpc {
     void *ret;
 };
 
+#ifdef XTPC_NOP
+
+#define XTPC_SERVE(xtpc) 0
+#define NO_XTPC(fun) (fun)
+#define XTPC(fun) (fun)
+
+#else /* XTPC_NOP */
+
 #define XTPC_SERVE(xtpc) ({\
             (xtpc)->ret = (__builtin_apply(\
                     (void*)((xtpc)->func),\
@@ -31,5 +39,7 @@ struct xtpc {
      } \
      _fn_; \
      })
+
+#endif /* XTPC_NOP */
 
 #endif
